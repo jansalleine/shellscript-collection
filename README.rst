@@ -1,0 +1,21 @@
+.. |(version)| replace:: 1.0
+.. -*- reStructuredText -*-
+
+.. contents::
+
+======================
+Shellscript Collection
+======================
+
+My personal collection of useful linux shell scripts.
+
+composer_install
+----------------
+
+Modified version of https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
+Will install composer to /usr/local/bin/composer
+
+f2bstatus
+---------
+
+Will execute fail2ban-client status for all jails in the jail list
