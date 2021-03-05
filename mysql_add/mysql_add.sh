@@ -27,20 +27,21 @@ fi
 
 if [ -z "$password" ]
 then
-    if [ ! command -v pwgen &> /dev/null ]
+    command -v pwgen
+    if [ $? -eq 0 ]
     then
+        password=`pwgen 32 1`
+    else
         stty -echo
         printf "Password: "
         read password
         stty echo
         printf "\n"
-    else
-        password=`pwgen 32 1`
     fi
 fi
 
-mysql -e "CREATE DATABASE IF NOT EXISTS $database;" \
-    && mysql -e "GRANT ALL PRIVILEGES ON $database.* TO '$user'@'$hostname' IDENTIFIED BY '$password';" \
+mysql -e "CREATE DATABASE IF NOT EXISTS \`$database\`;" \
+    && mysql -e "GRANT ALL PRIVILEGES ON \`$database\`.* TO \`$user\`@\`$hostname\` IDENTIFIED BY \`$password\`;" \
     && mysql -e "FLUSH PRIVILEGES;" \
     && echo "------------+------------------------------------" \
     && printf " database:  |  $database\n" \
