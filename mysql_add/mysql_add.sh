@@ -41,7 +41,7 @@ then
 fi
 
 mysql -e "CREATE DATABASE IF NOT EXISTS \`$database\`;" \
-    && mysql -e "GRANT ALL PRIVILEGES ON \`$database\`.* TO \`$user\`@\`$hostname\` IDENTIFIED BY \`$password\`;" \
+    && mysql -e "GRANT ALL PRIVILEGES ON \`$database\`.* TO \`$user\`@\`$hostname\` IDENTIFIED BY '$password';" \
     && mysql -e "FLUSH PRIVILEGES;" \
     && echo "------------+------------------------------------" \
     && printf " database:  |  $database\n" \
