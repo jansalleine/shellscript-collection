@@ -21,6 +21,11 @@ f2bstatus
 
 Will execute fail2ban-client status for all jails in the jail list
 
+img2dataurl
+-----------
+
+Converts a png, jpg or gif file to an HTML IMG tag with src as data URL
+
 mysql_add
 ---------
 
